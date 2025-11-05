@@ -83,6 +83,7 @@ function idInvalidCardCompanies(invalidCards){
 // Test the functions
 
 
-console.log(findInvalidCards(batch));
+console.log(findInvalidCards(batch).length, 'invalid cards found in batch');
+console.log(idInvalidCardCompanies(findInvalidCards(batch)));
 
 

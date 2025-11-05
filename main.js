@@ -26,15 +26,22 @@ const batch = [valid1, valid2, valid3, valid4, valid5, invalid1, invalid2, inval
 // Add your functions below:
 function validateCred(array){
     let shouldDouble = false;
+    let sum = 0;
     for (let i = array.length - 1; i >= 0; i --){
-        console.log('Index: ', i, 'Digit: ', array[i], 'Should double: ', shouldDouble);
+        console.log('Index: ', i, 'Digit: ', array[i], 'Should double: ', shouldDouble, 'Current sum: ', sum);
+        if (shouldDouble) {
+            let doubled = array[i] * 2;
+            sum += (doubled > 9) ? doubled - 9 : doubled;
+        } else {
+            sum += array[i];
+        }
         shouldDouble = !shouldDouble;
     }
+    return sum % 10 === 0;
 }
 
 console.log(validateCred(valid1));
-
-
+console.log(validateCred(invalid1));
 
 
 

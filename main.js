@@ -28,7 +28,6 @@ function validateCred(array){
     let shouldDouble = false;
     let sum = 0;
     for (let i = array.length - 1; i >= 0; i --){
-        console.log('Index: ', i, 'Digit: ', array[i], 'Should double: ', shouldDouble, 'Current sum: ', sum);
         if (shouldDouble) {
             let doubled = array[i] * 2;
             sum += (doubled > 9) ? doubled - 9 : doubled;
@@ -40,10 +39,18 @@ function validateCred(array){
     return sum % 10 === 0;
 }
 
-console.log(validateCred(valid1));
-console.log(validateCred(invalid1));
+function findInvalidCards(nestedArray){
+    let invalidCards = [];
+    for (let i = 0; i < nestedArray.length; i++){
+        if (!validateCred(nestedArray[i])){
+            invalidCards.push(nestedArray[i]);
+        }
+    }
+    return invalidCards;
+}
 
 
+console.log(findInvalidCards(batch));
 
 
 

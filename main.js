@@ -90,14 +90,30 @@ function convertToArray(cardNumberString){
     return cardArray;
 }
 
+function convertInvalidToValid(card){
+    const fixed = card.slice();
+    console.log('Trying to fix card:', card);
+    for (let i = fixed.length - 1; i >= 0; i--){
+        for (let digit = 0; digit <= 9; digit++){
+            fixed[i] = digit;
+            if (validateCred(fixed)){
+                console.log('Fixed card:', fixed);
+                return fixed;
+            }
+        }
+        fixed[i] = card[i];
+    }
+    console.log('Could not fix card:', card);
+    return null;
+}
+convertInvalidToValid(invalid3);
 
-
-convertToArray('4539677908016808');
+//convertToArray('4539677908016808');
 
 // Test the functions
 
 
-console.log(findInvalidCards(batch).length, 'invalid cards found in batch');
-console.log(idInvalidCardCompanies(findInvalidCards(batch)));
+//console.log(findInvalidCards(batch).length, 'invalid cards found in batch');
+//console.log(idInvalidCardCompanies(findInvalidCards(batch)));
 
 

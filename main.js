@@ -90,12 +90,14 @@ function convertToArray(cardNumberString){
     return cardArray;
 }
 
+
+
 convertToArray('4539677908016808');
 
 // Test the functions
 
 
-//console.log(findInvalidCards(batch).length, 'invalid cards found in batch');
-//console.log(idInvalidCardCompanies(findInvalidCards(batch)));
+console.log(findInvalidCards(batch).length, 'invalid cards found in batch');
+console.log(idInvalidCardCompanies(findInvalidCards(batch)));
 
 

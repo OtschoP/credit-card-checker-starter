@@ -80,10 +80,22 @@ function idInvalidCardCompanies(invalidCards){
     return companies;
 }
 
+function convertToArray(cardNumberString){
+    let cardArray = [];
+    for (let i = 0; i < cardNumberString.length; i++){
+        cardArray.push(parseInt(cardNumberString[i]));
+    }
+    console.log(cardArray);
+    console.log('Valid card:', validateCred(cardArray));
+    return cardArray;
+}
+
+convertToArray('4539677908016808');
+
 // Test the functions
 
 
-console.log(findInvalidCards(batch).length, 'invalid cards found in batch');
-console.log(idInvalidCardCompanies(findInvalidCards(batch)));
+//console.log(findInvalidCards(batch).length, 'invalid cards found in batch');
+//console.log(idInvalidCardCompanies(findInvalidCards(batch)));
 
 
